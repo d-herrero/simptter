@@ -1,0 +1,42 @@
+/************/
+/* Imports */
+/************/
+
+/* Vendor */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'jquery-ui';
+
+/* Application */
+
+@import 'mixins';
+
+/************/
+/* Styles */
+/************/
+
+.navbar .navbar-brand,
+.navbar .navbar-brand:hover {
+  padding: 15px 10px 10px 10px;
+  margin-right: 20px;
+  background: #333333;
+  color: #cccccc;
+  text-transform: uppercase;
+}
+
+main {
+  padding: 25px;
+  margin: 15px;
+  border: 1px solid #e7e7e7;
+  @include border-radius(10px, 10px, 10px, 10px);
+}
+
+main p {
+  margin: 25px 0;
+}
+
+.field_with_errors {
+  display: inline;
+  color: #ff0000;
+}

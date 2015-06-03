@@ -1,0 +1,44 @@
+es_ES:
+
+  layout:
+    charset: UTF8
+    title: Simptter
+
+  links:
+    toggle_navigation: Cambiar navegación
+    users: Usuarios
+    messages: Mensajes
+    languages:
+      es_ES: Español
+      en_EN: Inglés
+
+  messages:
+    new:
+      message: Mensaje
+      max_chars: (160 caracteres como máximo)
+      send: Enviar
+      list:
+        title: Mensajes
+        no_messages: No hay ningún mensaje
+        user: Usuario
+        timestamp: Fecha y hora
+        text: Texto
+    success:
+      create: ¡Mensaje creado!
+
+  users:
+    index:
+      title: Usuarios
+      name: Nombre
+      email: Email
+      followers: Seguidores
+      following: Siguiendo
+      messages: Mensajes
+      unfollow: Dejar de seguir
+      follow: Seguir
+    show:
+      title: "Usuario: %{name}"
+      email: Email
+      messages: Mensajes
+      followers: Seguidores
+      following: Siguiendo

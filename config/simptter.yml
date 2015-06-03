@@ -1,0 +1,14 @@
+# Locale
+locale:
+  list:
+    - en_EN
+    - es_ES
+  default: en_EN
+
+# Public pages (controller-method/s)
+public_pages:
+  users:
+    - api_get_info
+    - api_get_messages
+    - api_get_followers
+    - api_get_following

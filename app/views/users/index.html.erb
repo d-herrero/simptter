@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <h3><%= I18n.t('users.index.title') %></h3>
+
+    <div class="column">
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="17%"><%= I18n.t('users.index.name') %></th>
+            <th width="17%"><%= I18n.t('users.index.email') %></th>
+            <th width="17%"><%= I18n.t('users.index.followers') %></th>
+            <th width="17%"><%= I18n.t('users.index.following') %></th>
+            <th width="17%"><%= I18n.t('users.index.messages') %></th>
+            <th width="15%">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render 'user', user: current_user %>
+
+          <% @users.each do |user| %>
+            <%= render user %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

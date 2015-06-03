@@ -1,0 +1,43 @@
+<%= render 'errors' %>
+
+<%= form_for @message do |f| %>
+  <div class="form-group">
+    <%= f.label :text, I18n.t('messages.new.message') %> <%= I18n.t('messages.new.max_chars') %>
+    <%= f.text_area :text, :autofocus => true, class: 'form-control' %>
+  </div>
+
+   <%= f.submit I18n.t('messages.new.send'), :class => 'btn btn-default' %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <h3><%= I18n.t('messages.new.list.title') %></h3>
+
+    <% if @messages.blank? %>
+
+      <div class="alert alert-info">
+        <%= I18n.t('messages.new.list.no_messages') %>
+      </div>
+
+    <% else %>
+
+      <div class="column">
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="15%"><%= I18n.t('messages.new.list.user') %></th>
+              <th width="20%"><%= I18n.t('messages.new.list.timestamp') %></th>
+              <th width="65%"><%= I18n.t('messages.new.list.text') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @messages.each do |message| %>
+              <%= render message %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    <% end %>
+  </div>
+</div>

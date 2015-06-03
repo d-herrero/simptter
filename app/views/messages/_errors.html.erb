@@ -1,0 +1,18 @@
+<% if @message.errors.any? %>
+  <div class="alert alert-block alert-danger">
+    <h4 class="alert-heading"><%= "#{@message.errors.count == 1 ? I18n.t('errors.template.title.singular') : I18n.t('errors.template.title.plural', :count => @message.errors.count)}:" %></h4>
+
+    <ul>
+      <% @message.errors.messages.each do |k,v| %>
+        <li>
+          <strong><%= k %></strong>:
+          <ul>
+            <% v.each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

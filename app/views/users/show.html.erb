@@ -1,0 +1,37 @@
+<h3><%= I18n.t('users.show.title', name: @user.name) %></h3>
+
+<p>
+  <h4><%= I18n.t('users.show.email') %>:</h4>
+
+  <%= @user.email %>
+</p>
+
+<p>
+  <h4><%= I18n.t('users.show.messages') %>:</h4>
+
+  <%= @user.messages.length %>
+</p>
+
+<p>
+  <h4><%= I18n.t('users.show.followers') %>: <%= @user.followers.length %></h4>
+
+  <% unless @user.followers.blank? %>
+    <ul>
+      <% @user.followers.each do |user_relation| %>
+        <li><%= link_to user_relation.user.name, user_relation.user %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<p>
+  <h4><%= I18n.t('users.show.following') %>: <%= @user.followings.length %></h4>
+
+  <% unless @user.followings.blank? %>
+    <ul>
+      <% @user.followings.each do |user_relation| %>
+        <li><%= link_to user_relation.following.name, user_relation.following %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>

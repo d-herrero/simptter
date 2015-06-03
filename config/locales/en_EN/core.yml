@@ -1,0 +1,177 @@
+en_EN:
+
+  number:
+    format:
+      separator: ","
+      delimiter: "."
+      precision: 3
+    currency:
+      format:
+        format: "%n %u"
+        unit: €
+        separator: ","
+        delimiter: "."
+        precision: 2
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          kb: KB
+          mb: MB
+          gb: GB
+          tb: TB
+
+  datetime:
+    timezone: London
+    formats:
+      default: '%d/%m/%Y %H:%M'
+    distance_in_words:
+      half_a_minute: half a minute
+      less_than_x_seconds:
+        one: less than a second
+        other: "less than %{count} seconds"
+      x_seconds:
+        one: one second
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        one: less than one second
+        other: "less than %{count} minutes"
+      x_minutes:
+        one: one minute
+        other: "%{count} minutes"
+      about_x_hours:
+        one: around one hour
+        other: "around %{count} hours"
+      x_days:
+        one: one day
+        other: "%{count} days"
+      about_x_months:
+        one: around one month
+        other: "around %{count} months"
+      x_months:
+        one: one month
+        other: "%{count} months"
+      about_x_years:
+        one: around one year
+        other: "around one %{count} years"
+      over_x_years:
+        one: more than a year
+        other: "more than %{count} years"
+
+  errors:
+    template:
+      title:
+        singular: An error was found when trying to launch the operation
+        plural: It was found %{count} of errors when trying to launch the operation
+    messages:
+      inclusion: it is not included in the list.
+      exclusion: it is reserved.
+      invalid: not valid.
+      confirmation: does not match with your confirmation.
+      accepted: must be accepted.
+      empty: it cannot be empty.
+      blank: it cannot be blank.
+      too_long: "is too long (it is allowed %{count} characters at most)."
+      too_short: "is too short (it is allowed %{count} characters at least)."
+      wrong_length: "it has not the correct length (%{count} characters)."
+      taken: it is already in use.
+      not_a_number: it is not a number.
+      greater_than: "it must be greater than %{count}."
+      greater_than_or_equal_to: "it must be equal or greater to %{count}."
+      equal_to: "it must be %{count}."
+      less_than: "it must be less than %{count}."
+      less_than_or_equal_to: "it must be less or equal to %{count}."
+      odd: it must be odd.
+      even: it must be even.
+      email: it is not a valid e-mail.
+      password: for secutiry reasons, it must be composed between a length range of 6 and 32 characters(without commas), and, at least one of them must be in capital letters, another in lower case and a number.
+      login: it must be written in lower cases and cannot contain accents marks, spaces or strange characters. Its lenght must be of 16 characters at most.
+
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      short: "%e of %b"
+      long: "%e of %B of %Y"
+    day_names:
+      - Sunday
+      - Monday
+      - Thuesday
+      - Wenesday
+      - Thursday
+      - Fryday
+      - Saturday
+    abbr_day_names:
+      - Sun
+      - Mon
+      - Tue
+      - Wed
+      - Thur
+      - Fry
+      - Sat
+    abbr_day_names_2:
+      - SU
+      - MO
+      - TU
+      - WE
+      - TH
+      - FR
+      - SA
+    month_names:
+      - ~
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+    abbr_month_names:
+      - ~
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%A, %e of %B of %Y %H:%M:%S %z"
+      short: "%e of %b %H:%M"
+      long: "%e of %B of %Y %H:%M"
+      standalone: "%H:%M:%S %z"
+    am: AM
+    pm: PM
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " and "
+      last_word_connector: " and "

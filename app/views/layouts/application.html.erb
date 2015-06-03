@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= I18n.t('layout.title') %></title>
+    <meta charset="<%= I18n.t('layout.charset') %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+
+    <main role="main">
+       <%= render 'layouts/flash_messages' %>
+
+       <%= yield %>
+    </main>
+  </body>
+</html>

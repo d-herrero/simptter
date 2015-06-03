@@ -1,0 +1,14 @@
+@mixin border-radius($top_left, $top_right, $bottom_right, $bottom_left) {
+  border-top-left-radius: $top_left;
+  border-top-right-radius: $top_right;
+  border-bottom-right-radius: $bottom-right;
+  border-bottom-left-radius: $bottom-left;
+  -moz-border-radius-topleft: $top_left;
+  -moz-border-radius-topright: $top_right;
+  -moz-border-radius-bottomright: $bottom_right;
+  -moz-border-radius-bottomleft: $bottom_left;
+  -webkit-border-top-left-radius: $top_left;
+  -webkit-border-top-right-radius: $top_right;
+  -webkit-border-bottom-right-radius: $bottom_right;
+  -webkit-border-bottom-left-radius: $bottom_left;
+}

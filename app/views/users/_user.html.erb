@@ -1,0 +1,16 @@
+<tr>
+  <td><%= link_to user.name, user %></td>
+  <td><%= link_to user.email, user %></td>
+  <td><%= link_to user.followers.length, user %></td>
+  <td><%= link_to user.followings.length, user %></td>
+  <td><%= link_to user.messages.length, user %></td>
+  <td>
+    <% unless user == current_user %>
+      <% if @followings.include? user.id %>
+        <%= button_to I18n.t('users.index.unfollow'), [ :unfollow, user ], :class => 'btn btn-danger' %>
+      <% else %>
+        <%= button_to I18n.t('users.index.follow'), [ :follow, user ], :class => 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

@@ -1,0 +1,55 @@
+<div class="authform">
+  <h3><%= I18n.t('devise.registrations.edit.title', resource: resource_name.to_s.humanize) %></h3>
+
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
+
+    <%= devise_error_messages! %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div><% I18n.t('devise.registrations.edit.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+      <% end %>
+    </div>
+
+    <fieldset>
+      <p><%= I18n.t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it') %></p>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <p><%= I18n.t('devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes') %></p>
+
+      <div class="form-group">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password, class: 'form-control' %>
+      </div>
+    </fieldset>
+
+    <%= f.submit I18n.t('devise.registrations.edit.update'), :class => 'btn btn-default' %>
+  <% end %>
+</div>
+
+<div class="authform">
+  <h3><%= I18n.t('devise.registrations.edit.cancel_my_account') %></h3>
+
+  <p><%= I18n.t('devise.registrations.edit.unhappy') %></p>
+
+  <%= button_to I18n.t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), :data => { :confirm => I18n.t('devise.registrations.edit.are_you_sure') }, :method => :delete, :class => 'btn btn-default' %>
+</div>
