@@ -1,7 +1,12 @@
 Steps to install the system:
 
+* Install dependencies:
+
+  - Ruby >= 2.2.1.
+  - MySQL >= 5.5.43.
+
 * Generate "secret_key_base":
-  
+
   - Copy the result of the command "rake secret".
   - Open "/etc/profile" as superuser y add it at the end preceded by "export SECRET_KEY_BASE=".
 

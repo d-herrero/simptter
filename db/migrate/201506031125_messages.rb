@@ -1,6 +1,6 @@
 class Messages < ActiveRecord::Migration
   def self.up
-    create_table 'simptter.messages' do |t|
+    create_table 'simptter_messages' do |t|
       t.string :text, :null => false
       t.timestamp :date_time, :null => false
       t.references :user, :null => false
@@ -8,6 +8,6 @@ class Messages < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table 'simptter.messages'
+    drop_table 'simptter_messages'
   end
 end

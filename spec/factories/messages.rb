@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :message do
-    sequence(:text) { |n| "text #{n}" }
-    datetime Time.now
+    text { generate(:text) }
+    date_time Time.now
     user
   end
 end

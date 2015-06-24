@@ -1,15 +1,16 @@
 default: &default
-  adapter: postgresql
-  database: simptter
-  username: daniel
-  password: herrero
-  host: localhost
+  adapter: mysql2
+  username: root
+  password: mysql
 
 development:
   <<: *default
+  database: db
 
 test:
   <<: *default
+  database: db_test
 
 production:
   <<: *default
+  database: db

@@ -5,7 +5,7 @@ Bundler.require(*Rails.groups)
 # Config loading
 SIMPTTER_CONFIG = YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'simptter.yml'))
 
-module Webo
+module Simptter
   class Application < Rails::Application
     config.active_support.escape_html_entities_in_json = true
     # I18n

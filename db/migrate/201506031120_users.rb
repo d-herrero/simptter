@@ -1,8 +1,6 @@
 class Users < ActiveRecord::Migration
   def self.up
-    execute 'CREATE SCHEMA simptter'
-
-    create_table 'simptter.users' do |t|
+    create_table 'simptter_users' do |t|
       t.string :name, :null => false
       t.timestamps
       # DEVISE
@@ -22,12 +20,11 @@ class Users < ActiveRecord::Migration
       t.string   :last_sign_in_ip
     end
 
-    add_index 'simptter.users', :email, :unique => true
-    add_index 'simptter.users', :reset_password_token, :unique => true
+    add_index 'simptter_users', :email, :unique => true
+    add_index 'simptter_users', :reset_password_token, :unique => true
   end
 
   def self.down
-    drop_table 'simptter.users'
-    execute 'DROP SCHEMA simptter'
+    drop_table 'simptter_users'
   end
 end

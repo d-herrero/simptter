@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-  self.table_name = 'simptter.users'
+  self.table_name = 'simptter_users'
 
+  has_many :messages, :dependent => :destroy
   has_many :followers, :class_name => 'UserRelation', :foreign_key => 'following_id', :dependent => :destroy
   has_many :followings, :class_name => 'UserRelation', :foreign_key => 'user_id', :dependent => :destroy
-  has_many :messages, :dependent => :destroy
 
   devise :database_authenticatable, :rememberable, :trackable, :registerable
 

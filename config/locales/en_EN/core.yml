@@ -96,7 +96,7 @@ en_EN:
       odd: it must be odd.
       even: it must be even.
       email: it is not a valid e-mail.
-      password: for secutiry reasons, it must be composed between a length range of 6 and 32 characters(without commas), and, at least one of them must be in capital letters, another in lower case and a number.
+      password: for secutiry reasons, it must be composed between a length range of 6 and 32 characters (without commas), and, at least one of them must be in capital letters, another in lower case and a number.
       login: it must be written in lower cases and cannot contain accents marks, spaces or strange characters. Its lenght must be of 16 characters at most.
 
   date:

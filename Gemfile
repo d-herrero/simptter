@@ -8,7 +8,7 @@ gem 'dispatcher'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'pg'
+gem 'mysql2'
 gem 'puma'
 gem 'rails'
 gem 'sass-rails'
@@ -29,6 +29,7 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
-group :development, :test do
+group :test do
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end

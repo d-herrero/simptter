@@ -13,7 +13,7 @@ feature 'User logs in and logs out' do
     login 'someone@example.tld', 'somepassword'
 
     expect(page).to have_css('h1', text: 'Welcome to RSpec Rails Examples')
-    expect(current_path).to eq '/'
+    expect(current_path).to eq '/users'
     expect(page).to have_content 'Signed in successfully'
     expect(page).to have_content 'Hello, someone@example.tld'
 
@@ -22,34 +22,6 @@ feature 'User logs in and logs out' do
     expect(current_path).to eq '/'
     expect(page).to have_content 'Signed out successfully'
     expect(page).not_to have_content 'someone@example.tld'
-  end
-
-  scenario 'unconfirmed user cannot login' do
-    create(:user, skip_confirmation: false, email: 'e@example.tld', password: 'test-password')
-
-    visit new_user_session_path
-
-    login 'e@example.tld', 'test-password'
-
-    expect(current_path).to eq(new_user_session_path)
-    expect(page).not_to have_content 'Signed in successfully'
-    expect(page).to have_content 'You have to confirm your email address before continuing'
-  end
-
-  scenario 'locks account after 3 failed attempts' do
-    email = 'someone@example.tld'
-    create(:user, email: email, password: 'somepassword')
-
-    visit new_user_session_path
-
-    login email, '1st-try-wrong-password'
-    expect(page).to have_content 'Invalid email or password'
-    
-    login email, '2nd-try-wrong-password' 
-    expect(page).to have_content 'You have one more attempt before your account is locked'
-
-    login email, '3rd-try-wrong-password'
-    expect(page).to have_content 'Your account is locked.'
   end
 
   private

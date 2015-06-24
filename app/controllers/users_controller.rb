@@ -49,10 +49,14 @@ class UsersController < ApplicationController
     end
 
     def api_respond(data)
-      respond_to do |format|
-        format.json do
-          render :json => data
+      begin
+        respond_to do |format|
+          format.json do
+            render :json => data
+          end
         end
+      rescue ActionController::UnknownFormat
+        render_error 404
       end
     end
 end

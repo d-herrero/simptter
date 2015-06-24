@@ -6,8 +6,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-    # Permit parameters could've been avoided here, but just in case we need to add
-    # any other field in the future (it'd be probable... not in a simple test like this, of course :P)
     @message = Message.new allowed_params
     @message.date_time = Time.now
     @message.user_id = current_user.id
