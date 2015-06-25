@@ -98,7 +98,19 @@ en_EN:
       email: it is not a valid e-mail.
       password: for secutiry reasons, it must be composed between a length range of 6 and 32 characters (without commas), and, at least one of them must be in capital letters, another in lower case and a number.
       login: it must be written in lower cases and cannot contain accents marks, spaces or strange characters. Its lenght must be of 16 characters at most.
-
+    pages:
+      status_400:
+        title: Bad request
+        text: The request could not be understood by the server due to malformed syntax.
+      status_401:
+        title: Unauthorized
+        text: The request requires user authentication.
+      status_404:
+        title: Not found
+        text: The server has not found anything matching the requested URL.
+      status_500:
+        title: Internal server error
+        text: The server encountered an unexpected condition which prevented it from fulfilling the request.
   date:
     formats:
       default: "%m/%d/%Y"

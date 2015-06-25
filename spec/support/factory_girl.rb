@@ -3,6 +3,10 @@ RSpec.configure do |config|
 end
 
 FactoryGirl.define do
+  to_create do |instance|
+    raise "Invalid record: #{instance.errors.full_messages.join(', ')}" unless instance.save
+  end
+
   sequence(:name) { |n| "Name# {n}" }
 
   sequence(:email) { |n| "user#{n}@domain.tld" }

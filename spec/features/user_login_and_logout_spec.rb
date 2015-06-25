@@ -10,7 +10,9 @@ feature 'User logs in and logs out' do
     expect(page).to have_css('h2', text: 'Log in')
     expect(current_path).to eq(new_user_session_path)
 
-    login 'someone@example.tld', 'somepassword'
+    fill_in 'Email', with: email
+    fill_in 'Password', with: password
+    click_button 'Log in'
 
     expect(page).to have_css('h1', text: 'Welcome to RSpec Rails Examples')
     expect(current_path).to eq '/users'
@@ -23,12 +25,4 @@ feature 'User logs in and logs out' do
     expect(page).to have_content 'Signed out successfully'
     expect(page).not_to have_content 'someone@example.tld'
   end
-
-  private
-
-    def login(email, password)
-      fill_in 'Email', with: email
-      fill_in 'Password', with: password
-      click_button 'Log in'
-    end
 end

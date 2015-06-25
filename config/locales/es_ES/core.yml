@@ -97,6 +97,19 @@ es_ES:
       email: no es un email válido.
       password: por motivos de seguridad, debe tener entre 6 y 32 caracteres de longitud (sin espacios), entre los cuales al menos debe haber uno en mayúsculas, otro en minúsculas y un número.
       login: no es válido. Para serlo, debe estar en minúsculas y no puede contener tildes, espacios o caracteres extraños. Su longitud debe ser, como máximo, de 16 caracteres.
+    pages:
+      status_400:
+        title: Solicitud incorrecta
+        text: Los datos de su petición están mal formados.
+      status_401:
+        title: Acceso prohibido
+        text: Está intentando ver una página sobre la que no tiene permisos.
+      status_404:
+        title: No encontrado
+        text: La página que está buscando no existe.
+      status_500:
+        title: Error general
+        text: Se ha producido un fallo en la ejecución de la página.
 
   date:
     formats:

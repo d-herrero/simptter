@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: %w(show api_get_info api_get_messages api_get_followers api_get_following)
+  before_action :find_user, only: %w(show api_get_info api_get_messages api_get_followers api_get_followings)
 
   def index
     @users = User.where.not(id: current_user.id).order('id DESC').to_a
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     api_respond @user.followers.map{ |x| x.user }
   end
 
-  def api_get_following
+  def api_get_followings
     api_respond @user.followings.map{ |x| x.following }
   end
 
@@ -46,17 +46,5 @@ class UsersController < ApplicationController
 
     def find_user
       @user = User.find params[:id]
-    end
-
-    def api_respond(data)
-      begin
-        respond_to do |format|
-          format.json do
-            render :json => data
-          end
-        end
-      rescue ActionController::UnknownFormat
-        render_error 404
-      end
     end
 end

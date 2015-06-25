@@ -40,7 +40,9 @@ feature 'User registers' do
     end
 
     scenario 'blank fields' do
-      expect_fields_to_be_blank
+      expect(page).to have_field('Email', with: '', type: 'email')
+      expect(find_field('Password', type: 'password').value).to be_nil
+      expect(find_field('Password confirmation', type: 'password').value).to be_nil
 
       click_button 'Sign up'
 
@@ -86,13 +88,5 @@ feature 'User registers' do
 
       expect(page).to have_error_message 'Password is too short (minimum is 8 characters)'
     end
-  end
-
-  private
-
-  def expect_fields_to_be_blank
-    expect(page).to have_field('Email', with: '', type: 'email')
-    expect(find_field('Password', type: 'password').value).to be_nil
-    expect(find_field('Password confirmation', type: 'password').value).to be_nil
   end
 end

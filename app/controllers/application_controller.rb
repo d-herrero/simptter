@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
   before_action :locale, unless: :is_api?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from StandardError, :with => :render_error_for_exception
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_error_for_exception
+  rescue_from ActiveRecord::ActiveRecordError, :with => :render_error_for_exception
+  rescue_from ActionController::RoutingError, :with => :render_error_for_exception
+  rescue_from ActionController::UnknownController, :with => :render_error_for_exception
+  rescue_from ::AbstractController::ActionNotFound, :with => :render_error_for_exception
+  rescue_from ActionController::UnknownFormat, :with => :render_error_for_exception
+
   private
 
     def locale
@@ -33,7 +41,36 @@ class ApplicationController < ActionController::Base
     end
 
     def is_api?
-      is_public_page? and params[:action][0..-4] == 'api_' and response.format.json?
+      is_public_page? and params[:action][0..3] == 'api_'
+    end
+
+    def render_error_for_exception(exception)
+      if Rails.application.config.consider_all_requests_local
+        exceptions_status_codes = {
+          'ActionController::UnknownFormat' => 400,
+          'ActiveRecord::ActiveRecordError' => 401,
+          'ActiveRecord::RecordNotFound' => 404,
+          'ActionController::RoutingError' => 404,
+          'ActionController::UnknownController' => 404,
+          '::AbstractController::ActionNotFound' => 404,
+          'StandardError' => 500
+        }
+        status_code = exceptions_status_codes.include?(exception.to_s) ? exceptions_status_codes[exception.to_s] : 500
+
+        render_error status_code
+      else
+        raise exception
+      end
+    end
+
+    def api_respond(data)
+      request.format = 'json' unless params[:format]
+
+      respond_to do |format|
+        format.json do
+          render :json => data
+        end
+      end
     end
 
   protected
